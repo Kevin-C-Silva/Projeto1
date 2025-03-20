@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Projeto1.Models;
 
 namespace Projeto1.Controllers
 {
@@ -26,9 +27,14 @@ namespace Projeto1.Controllers
 
         }
         [HttpPost]
-        public IActionResult Cadastro()
+        public IActionResult Cadastro(Usuario usuario)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _usuarioRepositorio.AdicionarUsuario(usuario);
+                return RedirectToAction("Login");
+            }
+            return View(usuario);
         }
     }
 }
