@@ -8,5 +8,27 @@ namespace Projeto1.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Login(string email, string senha)
+        {
+            var usuario = _usuarioRepositorio.ObterUsuario(email);
+            if(usuario != null && usuario.Senha == senha)
+            {
+                //Autenticação bem-sucedida
+                return RedirectToAction("Index", "Home");
+            }
+            ModelState.AddModelError("", "Email ou senha inválidos");
+            return View();
+        }
+        public IActionResult Cadastro()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        public IActionResult Cadastro()
+        {
+            return View();
+        }
     }
 }
