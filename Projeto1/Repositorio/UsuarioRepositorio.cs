@@ -1,4 +1,4 @@
-﻿
+﻿using Projeto1.Models;
 
 namespace Projeto1.Repositorio
 {

@@ -1,5 +1,5 @@
 ﻿using System.Data;
-using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace Projeto1.Repositorio
 {
